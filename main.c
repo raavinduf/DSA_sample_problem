@@ -58,15 +58,45 @@ int insertGameCopies(Games *g,char Name [],int copies){
         return 0;
     }
 }
-typedef struct stacknode{
+typedef struct queuenode{
     int OrderNo;
     char OrderedGame [20];
-    struct stacknode *next;
-}StackNode;
+    struct queuenode *next;
+}QueueNode;
 
 
-typedef struct order{
+typedef struct orders{
     int count;
-    StackNode *next;
-}Order;
+    QueueNode *rear;
+    QueueNode *front;
+}Orders;
+
+void createOrders(Orders *o){
+    int count=0;
+    o->rear=NULL;
+    o->front=NULL;
+}
+
+int isOrdersEmpty(Orders *o){
+    if(o->count==0)
+        return 1;
+    return 0;
+}
+
+int insertOrder(Orders *o,int Order_number,char Orderedgame[] ){
+    QueueNode *np;
+    np=(QueueNode*)malloc(sizeof(QueueNode));
+    np->OrderNo=Order_number;
+    strcpy(np->OrderedGame,Orderedgame);
+    if(isOrdersEmpty(o)){
+        o->rear=np;
+        o->head=np;
+        o->count++;
+    }
+    //np->next=o->rear;
+    o->rear->next=np;
+    0->rear=np;
+    o->count++;
+    return 0;
+}
 
