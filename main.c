@@ -100,3 +100,22 @@ int insertOrder(Orders *o,int Order_number,char Orderedgame[] ){
     return 0;
 }
 
+int deleteOrder(Orders *o){
+    if(isOrdersEmpty(&o)){
+        return 0;
+    }
+
+    QueueNode *np;
+    np=(QueueNode*)malloc(sizeof(QueueNode));
+    np=o->front;
+    o->front=o->front->next;
+    free(np);
+}
+
+int completeOrder(Orders *o,Games *g){
+    ListNode *np;
+    np=(ListNode*)malloc(sizeof(ListNode));
+    np=Games->head;
+
+
+}
