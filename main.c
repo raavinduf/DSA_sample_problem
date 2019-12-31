@@ -95,7 +95,7 @@ int insertOrder(Orders *o,int Order_number,char Orderedgame[] ){
     }
     //np->next=o->rear;
     o->rear->next=np;
-    0->rear=np;
+    o->rear=np;
     o->count++;
     return 0;
 }
@@ -112,10 +112,4 @@ int deleteOrder(Orders *o){
     free(np);
 }
 
-int completeOrder(Orders *o,Games *g){
-    ListNode *np;
-    np=(ListNode*)malloc(sizeof(ListNode));
-    np=Games->head;
 
-
-}
