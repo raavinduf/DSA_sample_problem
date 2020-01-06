@@ -121,6 +121,7 @@ int insertOrder(Orders *o,char Customer_name[],char Ordered_game[] ){
     return 0;
 }
 
+<<<<<<< HEAD
 
 
 typedef struct stacknode{
@@ -180,4 +181,18 @@ int main(){
     insertOrder(&o,"Ravindu","Forza");
 
 }
+=======
+int deleteOrder(Orders *o){
+    if(isOrdersEmpty(&o)){
+        return 0;
+    }
+
+    QueueNode *np;
+    np=(QueueNode*)malloc(sizeof(QueueNode));
+    np=o->front;
+    o->front=o->front->next;
+    free(np);
+}
+
+>>>>>>> ae8535e1a374d66bac067dd62ad6b3027693708f
 
